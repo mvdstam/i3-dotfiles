@@ -37,7 +37,7 @@ URxvt*cursorColor2:       #151515
 URxvt.intensityStyles:	false
 URxvt.background:       [70]#000000
 URxvt.depth:		32
-URxvt.font:             xft:Iosevka Term:size=12:style=Regular
+URxvt.font:             xft:Iosevka:size=12:style=Regular
 !! URxvt.font:             xft:monospace:size=11
 URxvt.scrollBar:	false
 
