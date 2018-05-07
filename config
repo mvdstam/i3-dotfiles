@@ -213,5 +213,5 @@ bindsym --release Shift+Print exec "/home/$USER/.config/i3/screenshot/capture.sh
 # take a screenshot of a whole window and copy it to a clipboard
 bindsym --release Print exec "/home/$USER/.config/i3/screenshot/capture.sh /home/$USER/Pictures/screenshots/"
 
-# Suspend
-bindsym $mod+Pause exec "betterlockscreen -s dimblur"
+# Hibernate
+bindsym $mod+Pause exec "systemctl hibernate && betterlockscreen -l dimblur"
