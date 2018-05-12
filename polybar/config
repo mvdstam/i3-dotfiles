@@ -87,6 +87,7 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
+mount-1 = /home
 
 label-mounted = %{F#267fb5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
