@@ -174,18 +174,20 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
-#	status_command i3status
-#}
+bar {
+	status_command i3status
+}
 
 # Start Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Lock
-bindsym $mod+p exec "betterlockscreen -l dimblur"
+bindsym $mod+p exec "/home/$USER/.config/i3/i3lock-multimonitor/lock"
 
 # Fix displays
-exec --no-startup-id "xrandr --output DVI-D-0 --mode 1920x1080 --primary --rate 144"
+exec --no-startup-id "xrandr --output DP-2 --mode 2560x144"
+exec --no-startup-id "xrandr --output DP-4 --mode 2560x1440 --right-of DP-2 --primary"
+exec --no-startup-id "xrandr --output DP-0 --mode 2560x1440 --right-of DP-4"
 
 # Use XDefaults for term
 exec --no-startup-id "xrdb /home/$USER/.XDefaults"
@@ -215,3 +217,9 @@ bindsym --release Print exec "/home/$USER/.config/i3/screenshot/capture.sh /home
 
 # Hibernate
 bindsym $mod+Pause exec "systemctl hibernate && betterlockscreen -l dimblur"
+
+# USB charging fix
+bindsym $mod+Home exec "sudo usbmuxd -u -U usbmux"
+
+# Deja dup
+exec --no-startup-id "deja-dup &"
