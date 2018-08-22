@@ -38,7 +38,8 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+#font pango:DejaVu Sans Mono 8
+font pango:Iosevka Medium 10
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -172,22 +173,21 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Fix displays
+exec --no-startup-id "nvidia-settings --assign CurrentMetaMode='DFP-4: 2560x1440_60 +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DFP-6: 2560x1440_60 +2560+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DFP-2: 2560x1440_60 +5120+0 
+{ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}'"
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-	status_command i3status
-}
+#bar {
+#	status_command i3status
+#}
 
 # Start Polybar
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Lock
-bindsym $mod+p exec "/home/$USER/.config/i3/i3lock-multimonitor/lock"
-
-# Fix displays
-exec --no-startup-id "xrandr --output DP-2 --mode 2560x144"
-exec --no-startup-id "xrandr --output DP-4 --mode 2560x1440 --right-of DP-2 --primary"
-exec --no-startup-id "xrandr --output DP-0 --mode 2560x1440 --right-of DP-4"
+bindsym $mod+p exec "/usr/bin/betterlockscreen -l dimblur"
 
 # Use XDefaults for term
 exec --no-startup-id "xrdb /home/$USER/.XDefaults"
@@ -198,10 +198,10 @@ bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master 1%+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master 1%- unmute"
-bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+# Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # Ranger
 bindsym $mod+Shift+f exec "urxvt -e ranger"
@@ -222,4 +222,4 @@ bindsym $mod+Pause exec "systemctl hibernate && betterlockscreen -l dimblur"
 bindsym $mod+Home exec "sudo usbmuxd -u -U usbmux"
 
 # Deja dup
-exec --no-startup-id "deja-dup &"
+exec --no-startup-id "deja-dup"
