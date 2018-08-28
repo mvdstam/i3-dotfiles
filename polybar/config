@@ -61,7 +61,11 @@ font-4 = MaterialIcons:size=10;3
 font-5 = Termsynu:size=10:antialias=false;0
 
 modules-left = i3 spotify
-modules-right = cpu memory filesystem volume date
+modules-right = cpu memory network filesystem volume date
+
+[module/network]
+type = internal/network
+interface = eno1
 
 [module/cpu]
 type = internal/cpu
