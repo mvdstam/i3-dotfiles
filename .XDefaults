@@ -2,6 +2,13 @@
 *foreground: #D7D0C7
 *background: #151515
 
+! vim: set ft=xdefaults:
+! Set $TERM variable
+URxvt.termName:             rxvt-unicode-256color
+
+!Disables the insanely annoying Ctrl+Shift shortcut that enters ISO14755 mode
+URxvt.iso14755:             false
+
 !black
 ! *color0:     #AF875F
 ! *color8:     #AF875F
@@ -37,9 +44,9 @@ URxvt*cursorColor2:       #151515
 URxvt.intensityStyles:	false
 URxvt.background:       [70]#000000
 URxvt.depth:		32
-URxvt.font:             xft:Iosevka:size=12:style=Regular, \
-                        xft:DejaVu Sans:size=10:antialias=false
-!! URxvt.font:             xft:monospace:size=11
+URxvt.font:             xft:Iosevka:size=12:style=Regular,xft:Noto Emoji
+!!                        xft:DejaVu Sans:size=10:antialias=false,xft:Noto Emoji
+!!URxvt.font:             xft:monospace:size=11
 URxvt.scrollBar:	false
 
 URxvt*depth: 32
