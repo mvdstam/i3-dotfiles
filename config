@@ -174,7 +174,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Fix displays
-exec --no-startup-id "nvidia-settings --assign CurrentMetaMode='DFP-4: 2560x1440_60 +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DFP-6: 2560x1440_60 +2560+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DFP-2: 2560x1440_60 +5120+0 
+exec --no-startup-id "nvidia-settings --assign CurrentMetaMode='DFP-2: 2560x1440_60 +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DFP-4: 2560x1440_60 +2560+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DFP-6: 2560x1440_60 +5120+0 
 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}'"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -188,6 +188,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Lock
 bindsym $mod+p exec "/usr/bin/betterlockscreen -l dimblur"
+
+# Start autolocker, locks screen after 5 minutes inactivity
+exec xautolock -time 5 -locker "/usr/bin/betterlockscreen -l dimblur" -notify 30 -notifier "notify-send -u critical -t 10000 -- 'Locking screen in 30 seconds!'"
 
 # Use XDefaults for term
 exec --no-startup-id "xrdb /home/$USER/.XDefaults"
@@ -223,3 +226,6 @@ bindsym $mod+Home exec "sudo usbmuxd -u -U usbmux"
 
 # Deja dup
 exec --no-startup-id "deja-dup"
+
+# Jetbrains focus fix
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
