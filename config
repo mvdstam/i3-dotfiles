@@ -221,6 +221,7 @@ bindsym --release Print exec "/home/$USER/.config/i3/screenshot/capture.sh /home
 # Hibernate
 bindsym $mod+Pause exec "systemctl hibernate && betterlockscreen -l dimblur"
 
+<<<<<<< Updated upstream
 # USB charging fix
 bindsym $mod+Home exec "sudo usbmuxd -u -U usbmux"
 
@@ -229,3 +230,9 @@ exec --no-startup-id "deja-dup"
 
 # Jetbrains focus fix
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
+
+# USB fix for iPhone charging
+bindsym $mod+Home exec "sudo usbmuxd -u -U usbmux"
+
+# Origin fix
+for_window [instance="origin.exe"] floating enable
