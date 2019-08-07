@@ -221,10 +221,6 @@ bindsym --release Print exec "/home/$USER/.config/i3/screenshot/capture.sh /home
 # Hibernate
 bindsym $mod+Pause exec "systemctl hibernate && betterlockscreen -l dimblur"
 
-<<<<<<< Updated upstream
-# USB charging fix
-bindsym $mod+Home exec "sudo usbmuxd -u -U usbmux"
-
 # Deja dup
 exec --no-startup-id "deja-dup"
 
