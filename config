@@ -221,9 +221,6 @@ bindsym --release Print exec "/home/$USER/.config/i3/screenshot/capture.sh /home
 # Hibernate
 bindsym $mod+Pause exec "systemctl hibernate && betterlockscreen -l dimblur"
 
-# Deja dup
-exec --no-startup-id "deja-dup"
-
 # Jetbrains focus fix
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
 
