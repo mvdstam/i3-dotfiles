@@ -44,7 +44,8 @@ URxvt*cursorColor2:       #151515
 URxvt.intensityStyles:	false
 URxvt.background:       [70]#000000
 URxvt.depth:		32
-URxvt.font:             xft:Iosevka:size=12:style=Regular,xft:Noto Emoji
+!!URxvt.font:             xft:Iosevka:size=12:style=Regular,xft:Noto Emoji
+URxvt.font:             xft:Source Code Pro:size=12:style=Regular,xft:Noto Emoji
 !!                        xft:DejaVu Sans:size=10:antialias=false,xft:Noto Emoji
 !!URxvt.font:             xft:monospace:size=11
 URxvt.scrollBar:	false
