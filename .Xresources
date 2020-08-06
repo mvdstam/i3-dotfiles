@@ -1,100 +1,80 @@
-! URXVT GENERAL CONFIG
-!------------------------------------------------
-URxvt*iconFile: /usr/share/icons/Faenza/apps/32/utilities-terminal.png
-IRC*iconFile: /usr/share/icons/Faenza/apps/32/xchat.png
-URxvt.geometry: 80x22
-! URXVT FONTS
-!------------------------------------------------
-URxvt.font:xft:Lemon:pixelsize=10
-URxvt.boldFont:xft:Lemon:bold:pixelsize=10
-URxvt.italicfont:xft:Lemon:italic:pixelsize=10
-URxvt.bolditalicFont:xft:Lemon:bold:italic:pixelsize=10
-URxvt*letterSpace: 1
-URxvt*allow_bold: true
-! URXVT FONT SETTINGS
-!------------------------------------------------
-Xft.autohint: true
-Xft.antialias: true
-Xft.hinting: true
-Xft.hintstyle: hintslight
-Xft.rgba: rgb
-Xft.lcdfilter: lcddefault
-! URXVT ENABLE LINK SUPPORT
-!------------------------------------------------
-URxvt.perl-lib: /home/luca/Documenti/perl/
-URxvt.perl-ext-common: default,matcher,clipboard
-!tabbed
-URxvt.matcher.button: 1
-URxvt.perl-ext: default
-URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/firefox
-URxvt.url-select.underline: true
-!disable the fucking bell
-URxvt.insecure: false
-! URXVT COPY PASTE SHORTCUTS
-!------------------------------------------------
-URxvt.iso14755: False
-URxvt.keysym.Shift-Control-C: perl:clipboard:copy
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
-! URXVT SCROLLBAR AND CURSOR STYLE
-!------------------------------------------------
-URxvt*saveLines: 300000
-URxvt.scrollBar: false
-!URxvt*scrollstyle: plain
-URxvt*cursorBlink: true
-URxvt*cursorUnderline: true
-
-! URXVT TABS
-!------------------------------------------------
-URxvt.tabbedex.autohide: yes
-URxvt.tabbedex.tabbar-fg: 2
-URxvt.tabbedex.tabbar-bg: 0
-URxvt.tabbedex.tab-fg: 10
-URxvt.tabbedex.tab-bg: 0
-URxvt.tabbedex.title: yes
-URxvt.tabbedex.new-button: no
-! URXVT FULLSCREEN TOGGLE
-!------------------------------------------------
-URxvt.keysym.F11: perl:fullscreen:switch
-! URXVT COLORS
-!------------------------------------------------
 ! vim: set filetype=xdefaults :
+*foreground: #D7D0C7
+*background: #151515
 
-! special
-*.foreground: #93a1a1
-*.background: #3c3b37
-*.cursorColor: #93a1a1
+! vim: set ft=xdefaults:
+! Set $TERM variable
+URxvt.termName:             rxvt-unicode-256color
 
-! black
-*.color0: #5f5f5f
-*.color8: #828282
+!Disables the insanely annoying Ctrl+Shift shortcut that enters ISO14755 mode
+URxvt.iso14755:             false
 
-! red
-*.color1: #d96468
-*.color9: #d98f93
+!black
+! *color0:     #AF875F
+! *color8:     #AF875F
+*color0:     #101010
+*color8:     #404040
+!red
+*color1:     #E84F4F
+*color9:     #D23D3D
+!green
+*color2:     #B8D68C
+*color10:    #A0CF5D
+!yellow
+*color3:     #E1AA5D
+*color11:    #F39D21
+!blue
+*color4:     #7DC1CF
+*color12:    #4E9FB1
+!magenta
+*color5:     #9B64FB
+*color13:    #8542FF
+!cyan
+*color6:     #6D878D
+*color14:    #42717B
+!white
+*color7:     #dddddd
+*color15:    #dddddd
 
-! green
-*.color2: #a2d964
-*.color10: #b8d98f
+URxvt*borderColor:        #151515
+URxvt*colorBD:            #ffffff
+URxvt*cursorColor:        #ff8939
+URxvt*cursorColor2:       #151515
 
-! yellow
-*.color3: #d9c964
-*.color11: #d9cf8f
+URxvt.intensityStyles:	false
+URxvt.background:       [70]#000000
+URxvt.depth:		32
+URxvt.font:             xft:Source Code Pro:size=14:style=Regular,xft:PowerlineSymbols:style=Medium,xft:DejaVuSansMono Nerd Font Mono:style=Book
+URxvt.scrollBar:	false
 
-! blue
-*.color4: #64a2d9
-*.color12: #8f99d9
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0200/c800
 
-! magenta
-*.color5: #9a64d9
-*.color13: #b08fd9
+!! Extensions
+URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select,tabbed
+URxvt.colorUL:		#4682B4
+!! url-select
+URxvt.keysym.M-u:	perl:url-select:select_next
+URxvt.url-select.launcher: webview
+URxvt.url-select.underline: true
+!! keyboard-select:
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!! resize-font
+URxvt.resize-font.smaller:	C-Down
+URxvt.resize-font.bigger:	C-Up
+!! Matcher
+URxvt.url-launcher:	webview
+URxvt.matcher.button:	1
 
-! cyan
-*.color6: #64d9d5
-*.color14: #8fd9d5
+rofi.color-enabled:	true
+rofi.color-window:	#000, #000, #000
+rofi.color-normal:	#111, #819396, #222, #008ed4, #ffffff
+rofi.color-active:	#002b37, #008ed4, #003643, #008ed4, #66c6ff
+rofi.color-urgent:	#002b37, #da4281, #003643, #008ed4, #890661
 
-! white
-*.color7: #989898
-*.color15: #c5c5c5
+rofi.fake-transparency:	true
+rofi.lines:		3
+rofi.bw:		0
+rofi.opacity:		"10"
+rofi.hide-scrollbar:	true
+rofi.width:		30

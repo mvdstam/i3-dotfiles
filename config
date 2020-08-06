@@ -9,7 +9,10 @@ new_window pixel 4
 new_float pixel 4
 
 # Background
-exec --no-startup-id "feh --bg-scale /home/$USER/Pictures/background.jpg --no-xinerama"
+exec --no-startup-id betterlockscreen -w
+
+# Clight
+exec --no-startup-id clight
 
 # Gaps
 smart_gaps on
@@ -39,7 +42,7 @@ set $mod Mod4
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
-font pango:Iosevka Medium 10
+font pango:Iosevka Medium 12
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -173,10 +176,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Fix displays
-exec --no-startup-id "nvidia-settings --assign CurrentMetaMode='DFP-2: 2560x1440_60 +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DFP-4: 2560x1440_60 +2560+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DFP-6: 2560x1440_60 +5120+0 
-{ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}'"
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #bar {
@@ -187,13 +186,13 @@ exec --no-startup-id "nvidia-settings --assign CurrentMetaMode='DFP-2: 2560x1440
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Lock
-bindsym $mod+p exec "/usr/bin/betterlockscreen -l dimblur"
+bindsym $mod+p exec betterlockscreen -l dimblur
 
 # Start autolocker, locks screen after 5 minutes inactivity
 exec xautolock -time 5 -locker "/usr/bin/betterlockscreen -l dimblur" -notify 30 -notifier "notify-send -u critical -t 10000 -- 'Locking screen in 30 seconds!'"
 
 # Use XDefaults for term
-exec --no-startup-id "xrdb /home/$USER/.XDefaults"
+# exec --no-startup-id "xrdb /home/$USER/.Xresources"
 
 # Spotify related key bindings
 bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
@@ -219,13 +218,10 @@ bindsym --release Shift+Print exec "/home/$USER/.config/i3/screenshot/capture.sh
 bindsym --release Print exec "/home/$USER/.config/i3/screenshot/capture.sh /home/$USER/Pictures/screenshots/"
 
 # Hibernate
-bindsym $mod+Pause exec "systemctl hibernate && betterlockscreen -l dimblur"
+bindsym $mod+Pause exec "systemctl suspend"
 
 # Jetbrains focus fix
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
 
 # USB fix for iPhone charging
 bindsym $mod+Home exec "sudo usbmuxd -u -U usbmux"
-
-# Origin fix
-for_window [instance="origin.exe"] floating enable
