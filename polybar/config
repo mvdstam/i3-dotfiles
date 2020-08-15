@@ -126,7 +126,7 @@ font-3 = "Font Awesome 5 Free Solid:style=Solid:size=11;2"
 #font-5 = Termsynu:size=10:antialias=false;0
 
 modules-left = i3 spotify
-modules-right = cpu memory network battery filesystem volume date
+modules-right = cpu memory network temperature battery filesystem volume date
 
 [module/network]
 type = internal/network
@@ -296,8 +296,10 @@ date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 5
-warn-temperature = 65
+thermal-zone = 0
+warn-temperature = 95
+
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp2_input
 
 format = <ramp> <label>
 ;format-underline = #f50a4d
@@ -308,9 +310,9 @@ label = %temperature%
 label-warn = HOT! %temperature%
 label-warn-foreground = #f00
 
-ramp-0 = 
+ramp-0 = 
 ramp-1 = 
-ramp-2 = 
+ramp-2 = 
 ramp-foreground = #66
 
 
