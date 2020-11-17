@@ -11,9 +11,6 @@ new_float pixel 4
 # Background
 exec --no-startup-id betterlockscreen -w
 
-# Clight
-exec --no-startup-id clight
-
 # Gaps
 smart_gaps on
 smart_borders on
