@@ -126,7 +126,7 @@ font-3 = "Font Awesome 5 Free Solid:style=Solid:size=11;2"
 #font-5 = Termsynu:size=10:antialias=false;0
 
 modules-left = i3 spotify
-modules-right = cpu memory network temperature battery filesystem volume date
+modules-right = cpu memory network nmcli-vpn-status temperature battery filesystem volume date
 
 [module/network]
 type = internal/network
@@ -299,7 +299,7 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 95
 
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp2_input
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp2_input
 
 format = <ramp> <label>
 ;format-underline = #f50a4d
@@ -403,6 +403,10 @@ format-prefix = " "
 format = <label>
 exec = $HOME/.config/polybar/spotify.py
 
+[module/nmcli-vpn-status]
+type = custom/script
+interval = 5
+exec = $HOME/.config/polybar/nmcli-vpn-status.sh
 
 format-underline = #1db954
 
